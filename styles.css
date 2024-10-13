@@ -1,5 +1,8 @@
 body {
   background: linear-gradient(135deg, #000428, #004e92);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: white;
   font-family: 'Roboto', serif;
 }
