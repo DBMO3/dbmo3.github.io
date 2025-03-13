@@ -1,79 +1,100 @@
+/* 🌌 Fondo de la página */
 body {
-  background: linear-gradient(135deg, #000428, #004e92);
+  background: linear-gradient(135deg, #2a2a2a, #000000);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   color: white;
-  font-family: 'Roboto', serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-.card {
+/* 📌 Card principal más ancha */
+.main-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   backdrop-filter: blur(10px);
   width: 100%;
-  max-width: 400px;
+  max-width: 750px; /* Ajustado para que se vea bien en pantallas grandes */
+  padding: 30px;
+  margin: 20px; /* Espaciado adicional */
 }
 
-.carousel-item {
-  font-size: 1.2rem;
-  color: #fff;
+/* 🃏 Estilo para las tarjetas de sección */
+.section-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Ajustar el tamaño de las imágenes en el carrusel */
-#certificationsCarousel .carousel-item img {
-    max-width: 80%; /* Ajusta este valor según el tamaño deseado */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin: 0 auto; /* Centra la imagen en el carrusel */
+/* 🎨 Espaciado entre las cards */
+.g-4 > .col {
+  padding: 10px;
 }
 
-/* Estilos para las modales */
-.modal-content {
-    color: black;
+/* 🚀 Efecto hover en cards */
+.section-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
 }
 
-.modal-header .modal-title {
-    color: black;
-}
-
-.modal-body {
-    color: black;
-}
-
-.modal-footer .btn-secondary {
-    color: black;
-}
-
-.profile-image img {
-  width: 100px;
-  height: 100px;
+/* 📷 Ajuste de imágenes dentro de las cards */
+.card-img-top {
+  height: 150px;
   object-fit: cover;
 }
 
-a {
-  color: #00b4d8;
+/* 🎨 Botones estilizados */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-a:hover {
-  color: #caf0f8;
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
-/* Ajustes responsivos */
+/* 🦶 Footer con fondo transparente y blur */
+footer {
+  margin-top: 50px;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 💰 Card de donaciones en el footer */
+.support-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+  max-width: 400px;
+}
+
+/* ☕ Ajuste de botones de donación */
+.support-card img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.support-card img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* 📱 Ajustes responsivos */
 @media (max-width: 576px) {
-  .profile-image img {
-      width: 80px;
-      height: 80px;
-  }
-
   .card-title {
       font-size: 1.8rem;
   }
-
-  .carousel-item {
-      font-size: 1rem;
+  .main-card {
+      max-width: 90%;
+      padding: 20px; /* Reduce el padding en pantallas pequeñas */
   }
-
-  .btn {
-      font-size: 0.9rem;
+  footer {
+      padding: 10px 0;
   }
 }
