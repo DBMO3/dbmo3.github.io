@@ -86,15 +86,34 @@ footer {
 }
 
 /* 📱 Ajustes responsivos */
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .card-title {
-      font-size: 1.8rem;
+    font-size: 1.6rem; /* Ajusta el tamaño de título en pantallas medianas */
   }
   .main-card {
-      max-width: 90%;
-      padding: 20px; /* Reduce el padding en pantallas pequeñas */
+    max-width: 90%;
+    padding: 20px; /* Reduce el padding en pantallas pequeñas */
   }
   footer {
-      padding: 10px 0;
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-title {
+    font-size: 1.4rem; /* Ajusta el tamaño de título en pantallas más pequeñas */
+  }
+  .main-card {
+    max-width: 95%;
+    padding: 15px; /* Reduce aún más el padding en pantallas pequeñas */
+  }
+  .section-card {
+    margin: 10px 0; /* Añade espacio entre las tarjetas */
+  }
+  .card-img-top {
+    height: 120px; /* Ajusta la altura de la imagen */
+  }
+  footer {
+    padding: 10px 0;
   }
 }
