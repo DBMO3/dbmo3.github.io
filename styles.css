@@ -85,35 +85,47 @@ footer {
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* 📱 Ajustes responsivos */
+/* 📱 Ajustes responsivos mejorados */
 @media (max-width: 768px) {
   .card-title {
-    font-size: 1.6rem; /* Ajusta el tamaño de título en pantallas medianas */
+    font-size: 1.5rem; /* Tamaño de título equilibrado */
   }
   .main-card {
-    max-width: 90%;
-    padding: 20px; /* Reduce el padding en pantallas pequeñas */
+    max-width: 92%;
+    padding: 18px; /* Ajuste más cómodo */
+  }
+  .section-card {
+    margin: 12px 0; /* Espaciado entre tarjetas */
+  }
+  .card-img-top {
+    height: 130px; /* Tamaño de imagen optimizado */
   }
   footer {
-    padding: 15px 0;
+    padding: 12px 0;
   }
 }
 
 @media (max-width: 576px) {
   .card-title {
-    font-size: 1.4rem; /* Ajusta el tamaño de título en pantallas más pequeñas */
+    font-size: 1.3rem;
   }
   .main-card {
-    max-width: 95%;
-    padding: 15px; /* Reduce aún más el padding en pantallas pequeñas */
+    max-width: 96%;
+    padding: 12px;
   }
   .section-card {
-    margin: 10px 0; /* Añade espacio entre las tarjetas */
+    margin: 8px 0;
+    padding: 10px; /* Un poco más de aire interno */
   }
   .card-img-top {
-    height: 120px; /* Ajusta la altura de la imagen */
+    height: 110px;
   }
   footer {
-    padding: 10px 0;
+    padding: 8px 0;
   }
+  .support-card {
+    max-width: 100%; /* Permite mejor ajuste */
+  }
+}
+
 }
