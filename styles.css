@@ -85,7 +85,36 @@ footer {
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* 📱 Ajustes responsivos mejorados */
+/* Ajustes responsivos para tabla */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Colores personalizados para la tabla */
+.table {
+  color: #f8f9fa; /* Color blanco para texto */
+}
+
+.table th {
+  background-color: #007bff; /* Azul brillante para encabezados */
+  color: white; /* Blanco en el encabezado */
+}
+
+.table td {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo oscuro suave */
+  color: #f8f9fa; /* Color blanco para texto */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05); /* Fondo oscuro suave para filas pares */
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Resaltar fila al pasar el mouse */
+}
+
+/* Ajustes responsivos mejorados */
 @media (max-width: 768px) {
   .card-title {
     font-size: 1.5rem; /* Tamaño de título equilibrado */
