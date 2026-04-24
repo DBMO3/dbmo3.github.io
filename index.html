@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dylan Bernal Mora | Freelance Informático</title>
+    <title id="page-title">Dylan Bernal Mora | Freelance Informático</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -83,14 +83,14 @@
         <header class="mb-12">
             <div class="mb-6 inline-block">
                 <div class="w-24 h-24 rounded-full border-2 border-white overflow-hidden mx-auto shadow-2xl">
-                    <img src="image.png" alt="Dylan Bernal Mora" class="w-full h-full object-cover">
+                    <img id="profile-image" src="image.png" alt="Dylan Bernal Mora" class="w-full h-full object-cover">
                 </div>
             </div>
-            <h1 class="text-4xl font-semibold tracking-tight text-zinc-100 mb-2">
+            <h1 id="profile-name" class="text-4xl font-semibold tracking-tight text-zinc-100 mb-2">
                 Dylan Bernal Mora
             </h1>
             <p class="text-zinc-500 font-light text-lg">
-                Freelance Informático / <span class="text-zinc-300">DBMO3</span>
+                <span id="profile-role-text">Freelance Informático</span> / <span id="profile-brand" class="text-zinc-300">DBMO3</span>
             </p>
         </header>
 
@@ -111,9 +111,9 @@
         <!-- Modal de Términos y Condiciones -->
         <div id="modal-terms" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
             <div class="glass-card w-full max-w-md rounded-3xl p-8 text-left animate-fade">
-                <h2 class="text-2xl font-semibold mb-4 text-zinc-100">Términos y Condiciones</h2>
+                <h2 id="terms-title" class="text-2xl font-semibold mb-4 text-zinc-100">Términos y Condiciones</h2>
                 <div class="h-48 overflow-y-auto mb-6 pr-2 custom-scrollbar text-zinc-400 text-sm space-y-3 font-light">
-                    <p>Al contactar a Dylan Bernal Mora (DBMO3) a través de WhatsApp, usted acepta que el tratamiento de sus datos personales se realizará exclusivamente con fines de comunicación profesional y prestación de servicios informáticos.</p>
+                    <p id="terms-copy">Al contactar a Dylan Bernal Mora (DBMO3) a través de WhatsApp, usted acepta que el tratamiento de sus datos personales se realizará exclusivamente con fines de comunicación profesional y prestación de servicios informáticos.</p>
                     <p>Toda la información compartida durante la consultoría será tratada con estricta confidencialidad. Los presupuestos y tiempos de entrega proporcionados son estimaciones y están sujetos a cambios tras un análisis técnico detallado.</p>
                     <p>No se permite el uso de este canal para spam o contenido inapropiado. El incumplimiento de estas normas resultará en el bloqueo inmediato del usuario.</p>
                 </div>
@@ -138,13 +138,40 @@
         </div>
         
         <footer class="mt-20">
-            <p class="text-xs tracking-widest text-zinc-700 uppercase">
+            <p id="footer-copy" class="text-xs tracking-widest text-zinc-700 uppercase">
                 &copy; 2025 - 2026 • Dylan Bernal Mora
             </p>
         </footer>
     </main>
 
     <script>
+        const SITE_CONFIG = {
+            ownerName: 'Dylan Bernal Mora',
+            ownerBrand: 'DBMO3',
+            ownerRole: 'Freelance Informático',
+            whatsappNumber: '527702028013',
+            profileImage: 'image.png',
+            startYear: 2025
+        };
+
+        const ownerNameEl = document.getElementById('profile-name');
+        const ownerBrandEl = document.getElementById('profile-brand');
+        const ownerRoleEl = document.getElementById('profile-role-text');
+        const profileImageEl = document.getElementById('profile-image');
+        const termsCopyEl = document.getElementById('terms-copy');
+        const footerCopyEl = document.getElementById('footer-copy');
+
+        ownerNameEl.textContent = SITE_CONFIG.ownerName;
+        ownerBrandEl.textContent = SITE_CONFIG.ownerBrand;
+        ownerRoleEl.textContent = SITE_CONFIG.ownerRole;
+        profileImageEl.src = SITE_CONFIG.profileImage;
+        profileImageEl.alt = SITE_CONFIG.ownerName;
+        document.title = `${SITE_CONFIG.ownerName} | ${SITE_CONFIG.ownerRole}`;
+
+        termsCopyEl.textContent = `Al contactar a ${SITE_CONFIG.ownerName} (${SITE_CONFIG.ownerBrand}) a través de WhatsApp, usted acepta que el tratamiento de sus datos personales se realizará exclusivamente con fines de comunicación profesional y prestación de servicios informáticos.`;
+        const currentYear = new Date().getFullYear();
+        footerCopyEl.textContent = `© ${SITE_CONFIG.startYear} - ${currentYear} • ${SITE_CONFIG.ownerName}`;
+
         // Glow effect
         document.addEventListener('mousemove', (e) => {
             const glows = document.querySelectorAll('.glow');
@@ -188,7 +215,7 @@
 
         contactBtn.addEventListener('click', () => {
             if (checkbox.checked) {
-                window.open('https://wa.me/527702028013', '_blank');
+                window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}`, '_blank');
                 closeModal();
             }
         });
