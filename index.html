@@ -176,35 +176,38 @@
             </p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <!-- Soporte Presencial -->
             <div onclick="openService('physical')" class="glass-card service-card group">
-                <div class="w-20 h-20 bg-blue-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-blue-500/20 transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/20 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                 </div>
-                <p class="text-zinc-500 text-base font-medium tracking-wide">Hardware, PC y Consolas.</p>
+                <h3 class="text-xl font-bold text-white mb-2 tracking-tight">Soporte Físico</h3>
+                <p class="text-zinc-500 text-sm">Hardware, PC y Consolas.</p>
             </div>
 
             <!-- Soporte Remoto -->
             <div onclick="openService('remote')" class="glass-card service-card group">
-                <div class="w-20 h-20 bg-purple-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-purple-500/20 transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/20 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 21h6l-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <p class="text-zinc-500 text-base font-medium tracking-wide">Asistencia técnica vía red.</p>
+                <h3 class="text-xl font-bold text-white mb-2 tracking-tight">Soporte Remoto</h3>
+                <p class="text-zinc-500 text-sm">Asistencia técnica vía red.</p>
             </div>
 
             <!-- Desarrollo -->
             <div onclick="openService('project')" class="glass-card service-card group">
-                <div class="w-20 h-20 bg-emerald-500/10 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-emerald-500/20 transition-all duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/20 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                 </div>
-                <p class="text-zinc-500 text-base font-medium tracking-wide">Desarrollo de Apps y Sistemas.</p>
+                <h3 class="text-xl font-bold text-white mb-2 tracking-tight">Proyectos</h3>
+                <p class="text-zinc-500 text-sm">Desarrollo de Apps y Sistemas.</p>
             </div>
         </div>
 
@@ -224,23 +227,25 @@
         <div id="modal-terms" onclick="if(event.target === this) closeModal()">
             <div class="glass-card modal-body rounded-[3rem] p-12 animate-fade custom-scrollbar">
                 <div class="flex justify-end mb-4">
-                    <button onclick="closeModal()" class="text-zinc-600 hover:text-white transition-colors p-2">
+                    <button onclick="closeModal()" class="text-zinc-500 hover:text-white transition-colors">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
-                <div id="modal-content" class="text-zinc-400 text-lg leading-relaxed mb-10 whitespace-pre-line font-light"></div>
+                <div id="modal-content" class="text-zinc-300 text-xl leading-relaxed mb-16 whitespace-pre-line font-light tracking-wide px-4"></div>
                 
-                <label class="flex items-start space-x-4 cursor-pointer group mb-10">
-                    <div class="mt-1">
-                        <input type="checkbox" id="accept-terms" class="sr-only">
-                        <div class="w-6 h-6 border-2 border-zinc-800 rounded-lg bg-zinc-900 flex items-center justify-center transition-all group-hover:border-white">
-                            <svg class="w-4 h-4 text-black bg-white rounded hidden" id="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                <div class="px-4">
+                    <label class="flex items-start space-x-6 cursor-pointer group mb-12">
+                        <div class="mt-1">
+                            <input type="checkbox" id="accept-terms" class="sr-only">
+                            <div class="w-8 h-8 border-2 border-zinc-800 rounded-xl bg-zinc-900 flex items-center justify-center transition-all group-hover:border-white">
+                                <svg class="w-5 h-5 text-black bg-white rounded-md hidden" id="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
                         </div>
-                    </div>
-                    <span class="text-sm text-zinc-500 group-hover:text-zinc-300">Acepto las condiciones.</span>
-                </label>
+                        <span class="text-lg text-zinc-500 group-hover:text-zinc-300 transition-colors">Acepto las condiciones mencionadas.</span>
+                    </label>
 
-                <button id="contact-btn" disabled class="w-full py-5 rounded-2xl bg-white text-black font-black uppercase tracking-widest disabled:opacity-10 transition-all hover:bg-zinc-200">Contactar</button>
+                    <button id="contact-btn" disabled class="w-full py-6 rounded-3xl bg-white text-black font-black uppercase tracking-[0.2em] disabled:opacity-10 transition-all hover:bg-zinc-200 text-xl shadow-2xl">Contactar</button>
+                </div>
             </div>
         </div>
         
@@ -270,15 +275,12 @@
         }
 
         const modal = document.getElementById('modal-terms');
-        const modalTitle = document.getElementById('modal-title');
         const modalContent = document.getElementById('modal-content');
         const contactBtn = document.getElementById('contact-btn');
         const checkbox = document.getElementById('accept-terms');
         const checkIcon = document.getElementById('check-icon');
 
         function openService(type) {
-            const titles = { physical: 'Soporte Presencial', remote: 'Soporte Remoto', project: 'Desarrollo' };
-            modalTitle.innerText = titles[type];
             modalContent.innerText = decodeStr(strings[type]);
             checkbox.checked = false;
             contactBtn.disabled = true;
