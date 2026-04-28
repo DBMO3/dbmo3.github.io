@@ -335,10 +335,28 @@
             <div class="text-xl font-black text-white nav-link tracking-widest">
                 D.B.M.O.3<span class="text-cyan-neon">_</span>
             </div>
+            
+            <!-- Botón Hamburguesa -->
+            <button id="mobile-menu-btn" class="md:hidden text-cyan-400 hover:text-yellow-400 transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Menú PC -->
             <div class="hidden md:flex space-x-8 text-sm font-bold tracking-[0.2em] uppercase text-zinc-400 nav-link">
                 <a href="#hero" class="hover:text-cyan-400 transition-colors">INIT</a>
                 <a href="#servicios" class="hover:text-cyan-400 transition-colors">SYS_SERVICES</a>
                 <a href="#pago" class="hover:text-cyan-400 transition-colors">CREDITS</a>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-yellow-400/50 backdrop-blur-xl">
+            <div class="flex flex-col p-6 space-y-4 font-bold tracking-[0.3em] uppercase text-center">
+                <a href="#hero" onclick="toggleMenu()" class="py-3 text-zinc-400 hover:text-cyan-400 border-b border-white/5">INIT</a>
+                <a href="#servicios" onclick="toggleMenu()" class="py-3 text-zinc-400 hover:text-cyan-400 border-b border-white/5">SYS_SERVICES</a>
+                <a href="#pago" onclick="toggleMenu()" class="py-3 text-zinc-400 hover:text-cyan-400">CREDITS</a>
             </div>
         </div>
         <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
@@ -584,6 +602,24 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
         });
+
+        // --- MOBILE MENU LOGIC ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Icono X
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Icono Hamburguesa
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
     </script>
 </body>
 
