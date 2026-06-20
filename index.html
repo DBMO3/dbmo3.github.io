@@ -1,644 +1,751 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dylan Bernal Mora | NetRunner</title>
+    <title>Dylan Bernal Mora / D.B.M.O.3</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --cp-yellow: #FCEE0A;
-            --cp-cyan: #00F0FF;
-            --cp-red: #FF003C;
-            --cp-dark: #050505;
-            --cp-gray: #1a1a1a;
-            --cp-grid: rgba(0, 240, 255, 0.1);
-        }
 
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background-color: var(--cp-dark);
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
+    <!-- Custom Cyberpunk Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-        h1,
-        h2,
-        h3,
-        .nav-link,
-        .btn-cyber {
-            font-family: 'Orbitron', sans-serif;
-        }
+    <!-- Devicon CDN for tech icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-        /* --- BACKGROUND --- */
-        .cyber-grid {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, var(--cp-grid) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--cp-grid) 1px, transparent 1px);
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% {
-                transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
-            }
-
-            100% {
-                transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px);
-            }
-        }
-
-        .scanlines {
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            pointer-events: none;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2));
-            background-size: 100% 4px;
-        }
-
-        .vignette {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            background: radial-gradient(circle at center, transparent 0%, var(--cp-dark) 80%);
-        }
-
-        /* --- GLITCH TEXT --- */
-        .glitch-text {
-            position: relative;
-            color: white;
-        }
-
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--cp-dark);
-        }
-
-        .glitch-text::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--cp-red);
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
-
-        .glitch-text::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--cp-cyan);
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% {
-                clip: rect(10px, 9999px, 44px, 0);
-                transform: skew(0.8deg);
-            }
-
-            5% {
-                clip: rect(70px, 9999px, 10px, 0);
-                transform: skew(0.8deg);
-            }
-
-            10% {
-                clip: rect(30px, 9999px, 90px, 0);
-                transform: skew(0.3deg);
-            }
-
-            15% {
-                clip: rect(90px, 9999px, 50px, 0);
-                transform: skew(0.5deg);
-            }
-
-            20% {
-                clip: rect(20px, 9999px, 70px, 0);
-                transform: skew(0.1deg);
-            }
-
-            25% {
-                clip: rect(80px, 9999px, 30px, 0);
-                transform: skew(1.0deg);
-            }
-
-            30% {
-                clip: rect(50px, 9999px, 80px, 0);
-                transform: skew(0.4deg);
-            }
-
-            100% {
-                clip: rect(50px, 9999px, 80px, 0);
-                transform: skew(0deg);
-            }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% {
-                clip: rect(65px, 9999px, 100px, 0);
-                transform: skew(0.2deg);
-            }
-
-            5% {
-                clip: rect(15px, 9999px, 75px, 0);
-                transform: skew(0.7deg);
-            }
-
-            10% {
-                clip: rect(85px, 9999px, 20px, 0);
-                transform: skew(0.4deg);
-            }
-
-            15% {
-                clip: rect(40px, 9999px, 90px, 0);
-                transform: skew(0.9deg);
-            }
-
-            20% {
-                clip: rect(95px, 9999px, 10px, 0);
-                transform: skew(0.5deg);
-            }
-
-            25% {
-                clip: rect(25px, 9999px, 85px, 0);
-                transform: skew(0.1deg);
-            }
-
-            30% {
-                clip: rect(75px, 9999px, 35px, 0);
-                transform: skew(0.8deg);
-            }
-
-            100% {
-                clip: rect(75px, 9999px, 35px, 0);
-                transform: skew(0deg);
-            }
-        }
-
-        /* --- CYBER BUTTONS --- */
-        .btn-cyber {
-            position: relative;
-            background: var(--cp-yellow);
-            color: black;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-        }
-
-        @media (min-width: 768px) {
-            .btn-cyber {
-                padding: 15px 30px;
-                font-size: 1.2rem;
-            }
-        }
-
-        .btn-cyber:hover {
-            background: var(--cp-cyan);
-            color: black;
-            box-shadow: 0 0 20px var(--cp-cyan);
-        }
-
-        .btn-cyber::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 10px;
-            height: 10px;
-            background: var(--cp-red);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--cp-cyan);
-            border: 2px solid var(--cp-cyan);
-        }
-
-        .btn-outline:hover {
-            background: var(--cp-cyan);
-            color: black;
-        }
-
-        /* --- CYBER CARDS --- */
-        .cyber-card {
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid var(--cp-gray);
-            position: relative;
-            padding: 30px;
-            clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
-            transition: all 0.4s;
-            border-left: 3px solid var(--cp-cyan);
-        }
-
-        .cyber-card:hover {
-            transform: translateY(-5px);
-            border-left: 3px solid var(--cp-yellow);
-            box-shadow: 0 10px 30px rgba(252, 238, 10, 0.1);
-        }
-
-        .cyber-card::before {
-            content: 'SYS.REQ';
-            position: absolute;
-            top: 5px;
-            right: 15px;
-            font-size: 0.6rem;
-            color: var(--cp-cyan);
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
-        }
-
-        /* --- MODAL --- */
-        #modal-terms {
-            display: none;
-            opacity: 0;
-            transition: all 0.3s;
-        }
-
-        #modal-terms.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-box {
-            background: var(--cp-dark);
-            border: 2px solid var(--cp-yellow);
-            box-shadow: 0 0 30px rgba(252, 238, 10, 0.2);
-            clip-path: polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @media (max-width: 768px) {
-            .modal-box {
-                clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
-            }
-        }
-
-        /* --- CUSTOM SCROLLBAR --- */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--cp-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--cp-cyan);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--cp-yellow);
-        }
-
-        /* --- UTILS --- */
-        .text-cyan-neon {
-            color: var(--cp-cyan);
-            text-shadow: 0 0 10px var(--cp-cyan);
-        }
-
-        .text-yellow-neon {
-            color: var(--cp-yellow);
-            text-shadow: 0 0 10px var(--cp-yellow);
-        }
-
-        .text-red-neon {
-            color: var(--cp-red);
-            text-shadow: 0 0 10px var(--cp-red);
-        }
-
-        .barcode {
-            font-family: 'Libre Barcode 39', cursive;
-            font-size: 3rem;
-            color: var(--cp-gray);
-            opacity: 0.5;
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="selection:bg-yellow-400 selection:text-black">
+<body>
 
     <div class="scanlines"></div>
     <div class="cyber-grid"></div>
     <div class="vignette"></div>
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-40 bg-black/80 border-b border-cyan-500/30 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-black text-white nav-link tracking-widest">
-                D.B.M.O.3<span class="text-cyan-neon">_</span>
-            </div>
+    <!-- Navigation Bar -->
+    <nav class="cyber-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">D.B.M.O.3<span>_</span></a>
 
-            <!-- Botón Hamburguesa -->
-            <button id="mobile-menu-btn" class="md:hidden text-cyan-400 hover:text-yellow-400 transition-colors">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                &#9776;
             </button>
 
-            <!-- Menú PC -->
-            <div class="hidden md:flex space-x-8 text-sm font-bold tracking-[0.2em] uppercase text-zinc-400 nav-link">
-                <a href="#hero" class="hover:text-cyan-400 transition-colors">INIT</a>
-                <a href="#servicios" class="hover:text-cyan-400 transition-colors">SYS_SERVICES</a>
-                <a href="#pago" class="hover:text-cyan-400 transition-colors">CREDITS</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#init" class="nav-link active">INIT</a>
+                <a href="#showcase" class="nav-link">SHOWCASE</a>
+                <a href="#tech" class="nav-link">TECH</a>
+                <a href="#protocols" class="nav-link">CONTACT</a>
             </div>
         </div>
 
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-yellow-400/50 backdrop-blur-xl">
-            <div class="flex flex-col p-6 space-y-4 font-bold tracking-[0.3em] uppercase text-center">
-                <a href="#hero" onclick="toggleMenu()"
-                    class="py-3 text-zinc-400 hover:text-cyan-400 border-b border-white/5">INIT</a>
-                <a href="#servicios" onclick="toggleMenu()"
-                    class="py-3 text-zinc-400 hover:text-cyan-400 border-b border-white/5">SYS_SERVICES</a>
-                <a href="#pago" onclick="toggleMenu()" class="py-3 text-zinc-400 hover:text-cyan-400">CREDITS</a>
-            </div>
+        <!-- Mobile Dropdown Navigation -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#init" class="nav-link" onclick="closeMobileMenu()">INIT</a>
+            <a href="#showcase" class="nav-link" onclick="closeMobileMenu()">SHOWCASE</a>
+            <a href="#tech" class="nav-link" onclick="closeMobileMenu()">TECH</a>
+            <a href="#protocols" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
         </div>
-        <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
     </nav>
 
-    <main class="relative z-10 pt-20">
+    <!-- Main Content -->
+    <main>
 
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-            <div class="absolute top-1/4 left-10 md:left-20 opacity-20 hidden md:block">
-                <div class="text-left font-mono text-xs text-cyan-400 leading-tight">
-                    > SYS.BOOT... OK<br>
-                    > NEURAL_LINK... CONNECTED<br>
-                    > AUTH: D.BERNAL<br>
-                    > STATUS: ONLINE
-                </div>
+        <section id="init" class="hero">
+            <div class="system-status">
+                &gt; SYS.BOOT... OK<br>
+                &gt; NEURAL_LINK... CONNECTED<br>
+                &gt; USER: D.BERNAL<br>
+                &gt; STATUS: ACTIVE
             </div>
 
-            <div class="mb-8 relative group">
-                <div
-                    class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-cyan-500 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
-                </div>
-                <div class="relative w-40 h-40 border-2 border-cyan-500 p-1 bg-black clip-path-img">
-                    <img src="image.png" alt="Dylan Bernal Mora"
-                        class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
-                        style="clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);">
-                </div>
-            </div>
-
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-2 uppercase">
-                <span class="glitch-text text-white" data-text="DYLAN BERNAL MORA">DYLAN BERNAL MORA</span>
+            <div class="hero-tag">Core Developer // Portfolio</div>
+            <h1 class="hero-title">
+                <span class="glitch-text" data-text="NETRUNNER">NETRUNNER</span>
             </h1>
-            <h2 class="text-xl md:text-2xl text-cyan-neon font-bold tracking-[0.3em] mb-8">
-                NETRUNNER
+            <h2 class="hero-tag"
+                style="color: var(--cp-cyan); margin-bottom: 2.5rem; text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);">
+                SYSTEM_SECURE_ONLINE_
             </h2>
 
-            <p
-                class="text-lg md:text-2xl font-light text-zinc-300 max-w-2xl leading-relaxed mb-12 border-l-4 border-yellow-400 pl-4 text-left mx-auto bg-black/40 p-4">
-                Especialista en <span class="text-yellow-400 font-bold">Cyber-Solutions</span>, arquitectura de sistemas
-                y soporte táctico de vanguardia para infraestructuras digitales.
+            <p class="hero-desc">
+                Desarrollador de software especializado en <span
+                    style="color: var(--cp-cyan); font-weight: bold;">soluciones tácticas</span>, arquitectura de
+                sistemas híbridos, aplicaciones de escritorio robustas e interfaces de alto rendimiento.
             </p>
 
-            <div class="flex flex-col md:flex-row gap-6">
-                <a href="#servicios" class="btn-cyber">Acceder a Servicios</a>
-                <a href="#pago" class="btn-cyber btn-outline">Ver Protocolo de Pago</a>
+            <div class="hero-buttons">
+                <a href="#showcase" class="btn-cyber">Ver Showcase</a>
+                <a href="#protocols" class="btn-cyber btn-outline">Establecer Enlace</a>
             </div>
 
-            <div class="mt-16 barcode">DYLAN BERNAL MORA 2026</div>
+            <!-- Cyber Terminal Widget -->
+            <div class="terminal-widget">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="terminal-title">CONSOLE://NETRUNNER.SYS</span>
+                    <span class="terminal-badge">SECURE_LINK</span>
+                </div>
+                <div class="terminal-body" id="terminal-lines">
+                    <div class="terminal-line" style="color: var(--cp-cyan); font-weight: bold;">&gt; INICIANDO
+                        PROTOCOLO PORTAFOLIO v3.0...</div>
+                    <div class="terminal-line">&gt; ENLACE_SISTEMA: ESTABLE [100%]</div>
+                    <div class="terminal-line">&gt; ENCRIPTACIÓN DE DATOS: ACTIVA</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">guest@netrunner:~$</span>
+                    <span id="terminal-input"></span><span class="cursor"></span>
+                </div>
+            </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="servicios" class="py-24 px-6 max-w-7xl mx-auto">
-            <div class="flex items-center space-x-4 mb-16">
-                <div class="h-1 w-12 bg-yellow-400"></div>
-                <h2 class="text-2xl font-black uppercase tracking-[0.3em] text-white">Directorio de Servicios</h2>
-                <div class="flex-1 h-px bg-zinc-800"></div>
-                <span class="text-cyan-500 font-mono text-sm">v2.0.26</span>
+        <!-- Projects Showcase Section -->
+        <section id="showcase">
+            <div class="section-title-center">
+                <div class="line-yellow"></div>
+                <div class="line-grey"></div>
+                <h2>Showcase // Proyectos</h2>
+                <div class="line-grey"></div>
+                <div class="line-yellow"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Physical Card -->
-                <div onclick="openService('physical')" class="cyber-card cursor-pointer group">
-                    <div class="text-4xl text-cyan-500 mb-6 group-hover:text-yellow-400 transition-colors">
-                        [01]
+            <div class="projects-grid">
+
+                <!-- Project 1: TechMedic -->
+                <div class="project-card yellow">
+                    <div>
+                        <div class="project-thumbnail">
+                            <img src="techmedic.png" alt="TechMedic" onerror="this.src='image.png';">
+                        </div>
+                        <div class="project-header">
+                            <h3 class="project-title">TechMedic</h3>
+                            <span class="project-type">Web App</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>STATUS: EN DESARROLLO</span>
+                        </div>
+                        <p class="project-desc">
+                            Plataforma web basada en tickets para gestionar la reparación de equipos (teléfonos,
+                            consolas, laptops). Ofrece portal para clientes con seguimiento en tiempo real,
+                            notificaciones automáticas y emisión de órdenes en PDF con código QR.
+                        </p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-cyan-neon transition-colors">Soporte
-                        Físico</h3>
-                    <p class="text-zinc-400 leading-relaxed font-medium mb-8">Diagnóstico y reparación de computadoras.
+                    <div>
+                        <div class="project-techs">
+                            <div class="tech-badge"><i class="devicon-laravel-original"></i> Laravel</div>
+                            <div class="tech-badge"><i class="devicon-php-plain"></i> PHP</div>
+                            <div class="tech-badge"><i class="devicon-tailwindcss-original"></i> Tailwind CSS</div>
+                            <div class="tech-badge"><i class="devicon-supabase-plain"></i> Supabase</div>
+                        </div>
+                        <div class="project-footer">
+                            <button class="btn-cyber" onclick="openProject('techmedic')">Decodificar Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Leoncitos POS Escritorio -->
+                <div class="project-card green">
+                    <div>
+                        <div class="project-thumbnail">
+                            <img src="leoncitos_pos.png" alt="Leoncitos POS" onerror="this.src='bg1.png';">
+                        </div>
+                        <div class="project-header">
+                            <h3 class="project-title">Leoncitos POS</h3>
+                            <span class="project-type">Desktop App</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>STATUS: EN PRODUCCIÓN</span>
+                        </div>
+                        <p class="project-desc">
+                            Sistema ERP y Punto de Venta de escritorio de alta resistencia desarrollado para
+                            Construtienda Leoncitos. Sincroniza inventario local con copias contables en la nube.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="project-techs">
+                            <div class="tech-badge"><i class="devicon-python-plain"></i> Python</div>
+                            <div class="tech-badge"><i class="devicon-supabase-plain"></i> Supabase</div>
+                            <div class="tech-badge"><i class="devicon-pandas-plain"></i> Pandas</div>
+                            <div class="tech-badge"><i class="devicon-firebird-plain"></i> Firebird SQL</div>
+                        </div>
+                        <div class="project-footer">
+                            <button class="btn-cyber" onclick="openProject('leoncitos_pos')">Decodificar Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Leoncitos POS Mobile -->
+                <div class="project-card green">
+                    <div>
+                        <div class="project-thumbnail">
+                            <img src="leoncitos_pos_mobile.jpeg" alt="Leoncitos POS Mobile"
+                                onerror="this.src='bg2.png';">
+                        </div>
+                        <div class="project-header">
+                            <h3 class="project-title">Leoncitos POS Mobile</h3>
+                            <span class="project-type">Mobile App</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>STATUS: EN PRODUCCIÓN</span>
+                        </div>
+                        <p class="project-desc">
+                            Cliente móvil secundario (versión recortada) para el personal de piso. Registra ventas
+                            rápidas y altas de mercancías directamente desde los pasillos del negocio.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="project-techs">
+                            <div class="tech-badge"><i class="devicon-flutter-plain"></i> Flutter</div>
+                            <div class="tech-badge"><i class="devicon-dart-plain"></i> Dart</div>
+                            <div class="tech-badge"><i class="devicon-firebird-plain"></i> Firebird SQL</div>
+                        </div>
+                        <div class="project-footer">
+                            <button class="btn-cyber" onclick="openProject('leoncitos_pos_mobile')">Decodificar
+                                Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: A-Mind-Overflow -->
+                <div class="project-card green">
+                    <div>
+                        <div class="project-thumbnail">
+                            <img src="a_mind_overflow.png" alt="A Mind Overflow" onerror="this.src='bg3.png';">
+                        </div>
+                        <div class="project-header">
+                            <h3 class="project-title">A Mind Overflow</h3>
+                            <span class="project-type">Videogame</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>STATUS: EN PRODUCCIÓN</span>
+                        </div>
+                        <p class="project-desc">
+                            Novela visual de terror psicológico interactiva. El relato documentado del colapso mental de
+                            un desarrollador atrapado en un ciclo eterno de código, estática y fragmentos de realidad.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="project-techs">
+                            <div class="tech-badge"><i class="devicon-python-plain"></i> Python</div>
+                            <div class="tech-badge"><i class="devicon-python-plain"></i> Pygame</div>
+                        </div>
+                        <div class="project-footer">
+                            <button class="btn-cyber" onclick="openProject('mind_overflow')">Decodificar Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Rent-Check -->
+                <div class="project-card green">
+                    <div>
+                        <div class="project-thumbnail">
+                            <img src="rent_check.png" alt="Rent-Check" onerror="this.src='image.png';">
+                        </div>
+                        <div class="project-header">
+                            <h3 class="project-title">Rent-Check</h3>
+                            <span class="project-type">Desktop App</span>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>STATUS: EN PRODUCCIÓN</span>
+                        </div>
+                        <p class="project-desc">
+                            Aplicación Windows offline para propietarios de rentas. Realiza auditoría automática en
+                            tiempo real de deudores y calcula la mora acumulada por inquilino.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="project-techs">
+                            <div class="tech-badge"><i class="devicon-python-plain"></i> Python</div>
+                            <div class="tech-badge"><i class="devicon-sqlite-plain"></i> SQLite</div>
+                        </div>
+                        <div class="project-footer">
+                            <button class="btn-cyber" onclick="openProject('rent_check')">Decodificar Logs</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech">
+            <div class="section-title-center">
+                <div class="line-yellow"></div>
+                <div class="line-grey"></div>
+                <h2>Tecnologías // Habilidades</h2>
+                <div class="line-grey"></div>
+                <div class="line-yellow"></div>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="devicon-python-plain"></i>
+                    <span class="tech-name">Python</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-laravel-original"></i>
+                    <span class="tech-name">Laravel</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-php-plain"></i>
+                    <span class="tech-name">PHP</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-flutter-plain"></i>
+                    <span class="tech-name">Flutter</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-dart-plain"></i>
+                    <span class="tech-name">Dart</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-sqlite-plain"></i>
+                    <span class="tech-name">SQLite</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-supabase-plain"></i>
+                    <span class="tech-name">Supabase</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-firebird-plain"></i>
+                    <span class="tech-name">Firebird</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-tailwindcss-original"></i>
+                    <span class="tech-name">Tailwind</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-html5-plain"></i>
+                    <span class="tech-name">HTML5</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-css3-plain"></i>
+                    <span class="tech-name">CSS3</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-javascript-plain"></i>
+                    <span class="tech-name">JavaScript</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-git-plain"></i>
+                    <span class="tech-name">Git</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="protocols">
+            <div class="section-title-center">
+                <div class="line-yellow"></div>
+                <div class="line-grey"></div>
+                <h2>Protocolos de Comunicación</h2>
+                <div class="line-grey"></div>
+                <div class="line-yellow"></div>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p class="contact-desc">
+                        ¿Tienes una infraestructura digital que requiera blindaje, desarrollo táctico o una aplicación a
+                        medida? Inicia un canal de datos seguro conmigo a través de cualquiera de los siguientes medios
+                        de transferencia:
                     </p>
-                    <div class="text-yellow-400 text-sm font-bold uppercase tracking-widest flex items-center">
-                        <span class="mr-2">></span> Inicializar
+                    <div class="contact-links">
+                        <a href="mailto:dylanbernal360@gmail.com" class="contact-item">
+                            <i class="devicon-google-plain"></i>
+                            <div class="contact-text">
+                                <h4>CORREO ELECTRÓNICO</h4>
+                                <p>dylanbernal360@gmail.com</p>
+                            </div>
+                        </a>
+                        <a href="https://github.com/DBMO3" target="_blank" class="contact-item">
+                            <i class="devicon-github-original"></i>
+                            <div class="contact-text">
+                                <h4>GITHUB COMPILER</h4>
+                                <p>github.com/DBMO3</p>
+                            </div>
+                        </a>
+                        <a href="https://t.me/DBMO3" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-telegram"></i>
+                            <div class="contact-text">
+                                <h4>TELEGRAM LINK</h4>
+                                <p>t.me/DBMO3</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Remote Card -->
-                <div onclick="openService('remote')" class="cyber-card cursor-pointer group"
-                    style="border-left-color: var(--cp-red);">
-                    <div class="text-4xl text-red-500 mb-6 group-hover:text-yellow-400 transition-colors">
-                        [02]
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-red-neon transition-colors">Soporte
-                        Remoto</h3>
-                    <p class="text-zinc-400 leading-relaxed font-medium mb-8">Diagnóstico, instalación y reparación de
-                        software, configuraciones y optimización.</p>
-                    <div class="text-yellow-400 text-sm font-bold uppercase tracking-widest flex items-center">
-                        <span class="mr-2">></span> Inicializar
-                    </div>
-                </div>
-
-                <!-- Project Card -->
-                <div onclick="openService('project')" class="cyber-card cursor-pointer group"
-                    style="border-left-color: var(--cp-yellow);">
-                    <div class="text-4xl text-yellow-400 mb-6 group-hover:text-cyan-500 transition-colors">
-                        [03]
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-yellow-neon transition-colors">
-                        Proyectos</h3>
-                    <p class="text-zinc-400 leading-relaxed font-medium mb-8">Desarrollo de software a la medida, página
-                        web, aplicaciones móviles, automatizaciones y más.</p>
-                    <div class="text-cyan-500 text-sm font-bold uppercase tracking-widest flex items-center">
-                        <span class="mr-2">></span> Inicializar
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Payment Section -->
-        <section id="pago" class="py-24 px-6 max-w-5xl mx-auto text-center border-t border-zinc-800">
-            <h2 class="text-xl font-black uppercase tracking-[0.5em] text-cyan-500 mb-12">Protocolos de Transferencia
-            </h2>
-
-            <div class="flex flex-wrap justify-center gap-4 font-mono text-sm">
-                <div
-                    class="px-6 py-3 bg-black border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">
-                    > CRYPTO (BTC/ETH)
-                </div>
-                <div
-                    class="px-6 py-3 bg-black border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">
-                    > TRANSFERENCIA BANCARIA
-                </div>
-                <div
-                    class="px-6 py-3 bg-black border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">
-                    > PAYPAL / TARJETA
-                </div>
-                <div
-                    class="px-6 py-3 bg-black border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-black transition-colors cursor-default">
-                    > EFECTIVO LOCAL
-                </div>
-                <div
-                    class="px-6 py-3 bg-yellow-400/10 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors cursor-default font-bold">
-                    > ITEM: MANDO XBOX (LEGENDARIO)
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="py-10 border-t border-yellow-400/30 bg-black/50 text-center">
-            <p class="text-xs tracking-[0.3em] font-mono text-zinc-500">
-                &copy; 2026 // D.B.M.O.3 // END_OF_FILE
-            </p>
+        <footer>
+            <div class="footer-text">
+                &copy; 2026 // D.B.M.O.3 // TERMINAL_ACTIVE // END_OF_FILE
+            </div>
         </footer>
 
     </main>
 
-    <!-- Modal Cyberpunk -->
-    <div id="modal-terms"
-        class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-        onclick="if(event.target === this) closeModal()">
-        <div class="modal-box w-[85%] md:w-full max-w-[340px] md:max-w-2xl p-4 md:p-12 relative">
-            <div class="absolute top-0 left-0 w-full h-1 bg-yellow-400"></div>
-
-            <button onclick="closeModal()"
-                class="absolute top-4 right-4 md:top-6 md:right-6 text-zinc-500 hover:text-red-500 transition-colors font-mono text-xl z-10">
-                [X]
-            </button>
-
-            <div class="flex items-center space-x-2 mb-3 md:mb-8 border-b border-zinc-800 pb-3">
-                <div class="w-2 h-2 bg-red-500 animate-pulse"></div>
-                <h3 class="text-base md:text-xl font-bold text-white tracking-widest uppercase">Términos de Conexión
-                </h3>
+    <!-- Decrypt Logs Lightbox Modal -->
+    <div class="modal-overlay" id="project-modal" onclick="if(event.target === this) closeProjectModal()">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeProjectModal()">[X]</button>
+            <div class="modal-header-cyber">
+                <span class="modal-dot"></span>
+                <h3 id="modal-title">DECRYPT_LOG://</h3>
             </div>
-
-            <div id="modal-content"
-                class="text-cyan-100 text-xs md:text-lg leading-relaxed mb-3 md:mb-8 pr-2 md:pr-4 max-h-[40vh] md:max-h-[50vh] overflow-y-auto custom-scrollbar whitespace-pre-line font-medium">
-                <!-- Content injected here -->
-            </div>
-
-            <div class="space-y-3 md:space-y-6 bg-black/50 p-3 md:p-6 border border-cyan-500/20">
-                <label class="flex items-start space-x-4 cursor-pointer group">
-                    <div class="mt-1 relative">
-                        <input type="checkbox" id="accept-terms" class="sr-only">
-                        <div
-                            class="w-6 h-6 border-2 border-cyan-500 bg-black flex items-center justify-center transition-all group-hover:border-yellow-400">
-                            <div class="w-3 h-3 bg-yellow-400 hidden" id="check-icon"></div>
-                        </div>
-                    </div>
-                    <span
-                        class="text-[10px] md:text-sm text-zinc-400 group-hover:text-white transition-colors leading-tight font-mono">
-                        > CONFIRMO HABER LEÍDO Y ACEPTADO LOS TÉRMINOS.
-                    </span>
-                </label>
-
-                <button id="contact-btn" disabled
-                    class="btn-cyber w-full text-center disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-yellow-400 disabled:hover:text-black disabled:hover:box-shadow-none">
-                    ESTABLECER CONEXIÓN SEGURA
-                </button>
+            <div class="modal-body" id="modal-body-content">
+                <!-- Content Injected Dynamically -->
             </div>
         </div>
     </div>
 
+    <!-- JavaScript logic -->
     <script>
-        // --- SECURITY & STRINGS ---
-        const strings = {
-            physical: "LnNldG5hIG9kb3QgYXNpdmVSIC5kYWRpcnVnZXMgcm9wIG5hcnJvYiBlcyBvZ2V1bCAsb2xnZXJyYSBsZWQgc8OpdXBzZWQgYW5hbWVzIGFudSByb3Agb2xvcyBzb3RuZW11Y29kIHkgc290b2Ygc3V0IG9kcmF1RyA6c292aWhjcmEgc3VUIC40Ci5zb3RzYWcgc29sIHJpcmJ1YyBhcmFwIMOhcmFzdSBlcyAsb3BtZWl0IG9kYWlzYW1lZCBhc2FwIGlTIC5vbHJhZHJhdWcgcm9wIGFydHhlIMOhcmFyYm9jIGVzICxvbHJlZ29jZXIgbmUgb2hjdW0gc2FkcmF0IGlTIDpvcml0ZVIgLjMKLm90bmVtb20gZXNlIG5lIG5hZXYgZXMgb24gZXVxIHNhbGxhZiByb3Agb2Rub3BzZXIgb04gLm9pY2luaSBsYSBzb3RudWogb2xyZWRuZWNuZSBhcmFwIGFncmFjIG5vYyBvcGl1cWUgdXQgZWFyVCA6YWdlcnRuRSAuMgouKXNhZG5vb3JjaW0gbyBzYXJvZGF1Y2lsIG9tb2MoIHNvY2l0c8OpbW9kb3J0Y2VsZSBvcmFwZXIgb04gLnNhbG9zbm9jIHkgc2VyYWx1bGVjICxzYXJvZGF0dXBtb0MgOm9yYXBlciDDqXVRIC4xCgopc2Vub2ljYXJhcGVSKCBvY2lzw61GIGV0cm9wb1M=",
-            remote: "LmV0cm9jIGVzIG9uIG9qYWJhcnQgbGUgZXVxIGFyYXAgZWxiYXRzZSBuw7NpeGVub2MgYW51IHNhdGlzZWNlTiA6dGVucmV0bkkgLjMKLmFkaXAgb2wgZXQgYW1ldHNpcyBsZSBvZG5hdWMgcmFqYWJhcnQgZWQgb3NpbXJlcCBlbXJhZCBhcmFwIGFyb2RhdHVwbW9jIGFsIGEgZXRuZXJmIHJhdHNlIHNlYmVEIDpzb3NpbXJlUCAuMgoub2R1eWEgZXQgc2FydG5laW0gZXRuZWRpY2NhIHJvcCBvZGF2aXJwIG9nbGEgb2V2IGlzIG9kbm9wc2VyIG9OIC5yYXplcG1lIGVkIHNldG5hIHNlbGFub3NyZXAgc2VqYXNuZW0geSBzb3RvZiBzdXQgYXJyZWlDIDpkYWRpY2F2aXJQIC4xCgopdGVucmV0bkkgcm9wIGFkdXlBKCBvdG9tZVIgZXRyb3BvUw==",
-            project: "Lm9wbWVpdCBhIHJhZ2VsbCBzZWRldXAgb24gaXMgZW1hc8OtdmEgLHJvdmFmIHJvUCAuc2VjbmF2YSByYXNpdmVyIGFyYXAgb2VkaXYgcm9wIHNvbWVyZXYgc29OIDpzYXRpQyAuMwouw6FyZG5ldGVkIGVzIG90Y2V5b3JwIGxlICxvcG1laXQgb2hjdW0gcm9wIHJlZG5vcHNlciBlZCBzYWplZCBpUyAuc29kYWNpbnVtb2MgcmF0c2Ugc29tZWJlRCA6b3RjYXRub0MgLjIKLm9qYWJhcnQgbGVkIG90c29jIGxlIHJpYnVzIGVkZXVwIMOpY2VwbWUgYXkgZXVxIGVkIHPDqXVwc2VkIGFlZGkgZWQgcmFpYm1hQyAuc2F0aXNlY2VuIMOpdXEgbmVpYiBlbWFjw61scHhFIDpzYXJhbGMgc2FlZEkgLjEKCilzYW1hcmdvclAgZWQgbsOzaWNhZXJDKCBzb3RjZXlvclA=",
-            wa: "MzEwODIwMjA3NzI1L2VtLmF3Ly86c3B0dGg="
+        // Project Specifications Database
+        const projectDatabase = {
+            techmedic: {
+                title: "TechMedic",
+                content: `
+                    <h4>Descripción de Compilación</h4>
+                    <p>Plataforma web basada en tickets para la administración de reparaciones de dispositivos tecnológicos (teléfonos, consolas, laptops y computadoras). Centraliza la comunicación y flujos de trabajo entre el cliente y el soporte técnico.</p>
+                    
+                    <h4>Detalles del Ecosistema</h4>
+                    <ul>
+                        <li><strong>Portal de Clientes Autogestionado:</strong> Los usuarios pueden consultar en tiempo real el estatus e información detallada de sus equipos ingresando su número de ticket.</li>
+                        <li><strong>Notificaciones Automáticas:</strong> Despacho automático de avisos al cliente ante actualizaciones de estado o emisión de cotizaciones.</li>
+                        <li><strong>Panel de Gestión del Técnico:</strong> Bandeja de entrada para cotizar reparaciones, notificar costes al usuario, capturar la aceptación del cliente y formalizar órdenes de servicio.</li>
+                        <li><strong>Generación de Comprobantes PDF:</strong> Generación automatizada de órdenes de servicio físicas que integran un código QR de rastreo online y un mapa de entrega del local de soporte.</li>
+                    </ul>
+                    
+                    <div class="modal-tech-specs">
+                        <div class="spec-item">
+                            <h5>LENGUAJES</h5>
+                            <p>PHP / HTML5 / CSS3 / SQL</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>DEPENDENCIAS CLAVE</h5>
+                            <p>Laravel, Livewire, DomPDF, Tailwind CSS</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>BASE DE DATOS</h5>
+                            <p>Supabase (PostgreSQL)</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>ESTADO DEL PROYECTO</h5>
+                            <p>EN DESARROLLO</p>
+                        </div>
+                    </div>
+                `
+            },
+            leoncitos_pos: {
+                title: "Leoncitos POS (Escritorio)",
+                content: `
+                    <h4>Descripción de Compilación</h4>
+                    <p>Ecosistema completo de Punto de Venta (POS) y ERP de escritorio, desarrollado específicamente para optimizar la gestión contable, inventarios masivos y administración de personal de Construtienda Leoncitos.</p>
+                    
+                    <h4>Detalles del Blindaje</h4>
+                    <ul>
+                        <li><strong>Arquitectura MVC Completa:</strong> Control integral de operaciones de caja, historial de transacciones contables y administración centralizada de sucursales.</li>
+                        <li><strong>Base de Datos Híbrida:</strong> Conexión local persistente de latencia cero con Firebird SQL (.fdb) sincronizada automáticamente con PostgreSQL/Supabase en la nube para copias de seguridad continuas.</li>
+                        <li><strong>GUI de Alto Rendimiento:</strong> Desarrollado sobre Python con Tkinter y ttkbootstrap, logrando una interfaz moderna que funciona con mínimo consumo de RAM.</li>
+                        <li><strong>Módulo Contable:</strong> Procesamiento de datos en tiempo real mediante Pandas para calcular balances generales y flujos financieros con exportación directa a Excel.</li>
+                    </ul>
+                    
+                    <div class="modal-tech-specs">
+                        <div class="spec-item">
+                            <h5>LENGUAJES</h5>
+                            <p>Python / SQL </p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>DEPENDENCIAS CLAVE</h5>
+                            <p>Ttkbootstrap, Pandas, Supabase</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>BASE DE DATOS</h5>
+                            <p>Firebird SQL (Local) + Supabase (Cloud)</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>ESTADO DEL PROYECTO</h5>
+                            <p>EN PRODUCCIÓN</p>
+                        </div>
+                    </div>
+                `
+            },
+            leoncitos_pos_mobile: {
+                title: "Leoncitos POS Mobile",
+                content: `
+                    <h4>Descripción de Compilación</h4>
+                    <p>Cliente secundario portátil (versión recortada) diseñado específicamente para dispositivos móviles de los empleados en piso dentro de Construtienda Leoncitos.</p>
+                    
+                    <h4>Detalles de Operación y Red</h4>
+                    <ul>
+                        <li><strong>Registro de Ventas Rápido:</strong> Módulo ágil para registrar transacciones de venta desde cualquier pasillo del almacén físico.</li>
+                        <li><strong>Altas de Mercancía:</strong> Interfaz simplificada para la recepción y alta inmediata de nuevo stock directo al inventario central.</li>
+                        <li><strong>Evitación de Colisiones (Multi-Terminal):</strong> Uso de generadores de folios atómicos (GEN_ID) en Firebird SQL, permitiendo operaciones concurrentes de múltiples terminales móviles sin conflicto de inventario.</li>
+                        <li><strong>Movilidad Reactiva:</strong> Desarrollado en Flutter para asegurar un rendimiento óptimo y una conexión persistente frente a microcortes de la red local.</li>
+                    </ul>
+                    
+                    <div class="modal-tech-specs">
+                        <div class="spec-item">
+                            <h5>LENGUAJES</h5>
+                            <p>Dart</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>DEPENDENCIAS CLAVE</h5>
+                            <p>Flutter SDK, fbdb</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>BASE DE DATOS</h5>
+                            <p>Firebird SQL</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>ESTADO DEL PROYECTO</h5>
+                            <p>EN PRODUCCIÓN</p>
+                        </div>
+                    </div>
+                `
+            },
+            mind_overflow: {
+                title: "A Mind Overflow",
+                content: `
+                    <div class="unstable-system-alert">
+                        ⚠️ [ ESTADO: REALIDAD_INESTABLE_DETECTADA ]
+                    </div>
+                    <blockquote class="cyber-quote">
+                        "El ciclo se reinicia. Hasta que las piezas encajen sin matarme."
+                    </blockquote>
+                    <p class="cyber-narrative">
+                        Estás solo en un apartamento que huele a café rancio y electricidad estática. Ante ti, El Mecanismo parpadea: un pulso tembloroso que espera una forma que ya no estás seguro de poder proporcionar.
+                    </p>
+                    <p class="cyber-narrative highlight">
+                        A Mind Overflow no es solo un juego; es el fragmento de una realidad en colapso. Es la lucha documentada de un desarrollador que dejó de distinguir entre su código y su propia cordura.
+                    </p>
+                    
+                    <h4>LO QUE QUEDA DE LA EXPERIENCIA</h4>
+                    <ul>
+                        <li><strong>Enfoque Fracturado:</strong> Un lento descenso hacia el aislamiento, interrumpido por ráfagas de 5 segundos de ruido cognitivo de alta tensión.</li>
+                        <li><strong>El Vacío de 16 bits:</strong> Un mundo monocromático de "Cine Negro" (Noir) donde las sombras de la era de la SNES se encuentran con los fallos de una mente cansada.</li>
+                        <li><strong>La Voz:</strong> Un eco omnipresente que conoce tus fracasos mejor que tú. Siempre está observando. Siempre está juzgando.</li>
+                        <li><strong>Costo Implícito:</strong> Una narrativa que se filtra en las mecánicas, reflejando el costo físico y mental de la creación.</li>
+                    </ul>
+                    
+                    <div class="cyber-footer-note">
+                        &gt; La lógica es inconsistente. Los errores son deliberados. El final es solo otro comienzo.
+                    </div>
+                    
+                    <div class="modal-tech-specs">
+                        <div class="spec-item">
+                            <h5>LENGUAJES</h5>
+                            <p>Python</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>DEPENDENCIAS CLAVE</h5>
+                            <p>Pygame, Python</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>BASE DE DATOS</h5>
+                            <p>Persistencia Local (Save States)</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>ESTADO DEL PROYECTO</h5>
+                            <p>EN PRODUCCIÓN</p>
+                        </div>
+                    </div>
+                `
+            },
+            rent_check: {
+                title: "Rent-Check",
+                content: `
+                    <h4>Descripción de Compilación</h4>
+                    <p>Aplicación de escritorio Windows offline para propietarios de inmuebles. Permite llevar un control integral de inquilinos, historial de abonos y una auditoría automatizada de deudas en tiempo real sin requerir servidores externos.</p>
+                    
+                    <h4>Detalles del Blindaje</h4>
+                    <ul>
+                        <li><strong>Dashboard de Deudores:</strong> Panel principal de visualización que agrupa a todos los arrendatarios con saldos pendientes, ordenados por nivel de urgencia.</li>
+                        <li><strong>Cálculo Automático en logic.py:</strong> El motor de negocio calcula la deuda exacta al arranque comparando los meses transcurridos desde el inicio del contrato contra la suma de abonos registrados.</li>
+                        <li><strong>Alertas de Morosidad:</strong> Marcador visual crítico que detecta automáticamente si un inquilino supera los 30 días de retraso, destacándolo en color rojo con la etiqueta <code>¡ATRASADO!</code>.</li>
+                        <li><strong>Persistencia SQLite (WAL):</strong> Conexión local robusta con Journal Mode WAL (Write-Ahead Logging) habilitado para prevenir corrupción de base de datos y borrado en cascada (ON DELETE CASCADE) para preservar la integridad relacional al remover registros.</li>
+                        <li><strong>Modularidad Estilística:</strong> Separación total entre la UI y los tokens de diseño (colores y fuentes) mediante el módulo styles.py.</li>
+                    </ul>
+                    
+                    <div class="modal-tech-specs">
+                        <div class="spec-item">
+                            <h5>LENGUAJES</h5>
+                            <p>Python / SQL</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>DEPENDENCIAS CLAVE</h5>
+                            <p>Tkinter, Pillow, tkcalendar</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>BASE DE DATOS</h5>
+                            <p>SQLite (Relacional Local)</p>
+                        </div>
+                        <div class="spec-item">
+                            <h5>ESTADO DEL PROYECTO</h5>
+                            <p>EN PRODUCCIÓN</p>
+                        </div>
+                    </div>
+                `
+            }
         };
 
-        function decodeStr(str) {
-            try {
-                const binary = atob(str);
-                const bytes = new Uint8Array(binary.length);
-                for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-                const decoded = new TextDecoder().decode(bytes);
-                return Array.from(decoded).reverse().join('');
-            } catch (e) { return "Error."; }
-        }
+        // --- PROJECT MODAL LIGHTBOX LOGIC ---
+        const projectModal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBodyContent = document.getElementById('modal-body-content');
 
-        // --- MODAL LOGIC ---
-        const modal = document.getElementById('modal-terms');
-        const modalContent = document.getElementById('modal-content');
-        const contactBtn = document.getElementById('contact-btn');
-        const checkbox = document.getElementById('accept-terms');
-        const checkIcon = document.getElementById('check-icon');
+        function openProject(projectId) {
+            const data = projectDatabase[projectId];
+            if (!data) return;
 
-        function openService(type) {
-            modalContent.innerText = decodeStr(strings[type]);
-            checkbox.checked = false;
-            contactBtn.disabled = true;
-            checkIcon.classList.add('hidden');
-            modal.style.display = 'flex';
-            setTimeout(() => modal.classList.add('active'), 10);
+            modalTitle.innerText = `DECRYPT_LOG://${data.title.toUpperCase()}`;
+            modalBodyContent.innerHTML = data.content;
+
+            projectModal.style.display = 'flex';
+            setTimeout(() => {
+                projectModal.classList.add('active');
+            }, 10);
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            modal.classList.remove('active');
-            setTimeout(() => modal.style.display = 'none', 300);
-            document.body.style.overflow = 'auto';
+        function closeProjectModal() {
+            projectModal.classList.remove('active');
+            setTimeout(() => {
+                projectModal.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = '';
         }
 
-        checkbox.addEventListener('change', (e) => {
-            contactBtn.disabled = !e.target.checked;
-            checkIcon.classList.toggle('hidden', !e.target.checked);
-        });
-
-        contactBtn.addEventListener('click', () => {
-            if (checkbox.checked) {
-                window.open(decodeStr(strings.wa), '_blank');
-                closeModal();
-            }
-        });
-
+        // Close on Esc key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                closeProjectModal();
+            }
         });
 
-        // --- MOBILE MENU LOGIC ---
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        // --- MOBILE MENU NAVIGATION ---
+        const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
 
-        function toggleMenu() {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Icono X
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+        }
+
+        // --- INTERACTIVE SIMULATED TERMINAL WIDGET ---
+        const termLines = document.getElementById('terminal-lines');
+        const termInput = document.getElementById('terminal-input');
+
+        const systemLogs = [
+            "Conexión neural activa...",
+            "Iniciando escaneo de sistemas locales...",
+            "Ecosistema Leoncitos POS: DETECTADO [PRODUCCIÓN]",
+            "TechMedic Laravel App: INICIALIZADA [HERD]",
+            "Cargando interfaz visual NETRUNNER v3.0..."
+        ];
+
+        let logIdx = 0;
+        function printSystemLog(text, color = '#a0aec0') {
+            if (!termLines) return;
+            const line = document.createElement('div');
+            line.className = 'terminal-line';
+            line.style.color = color;
+            line.innerText = `> ${text}`;
+            termLines.appendChild(line);
+            termLines.scrollTop = termLines.scrollHeight;
+        }
+
+        // Cycle through initial logs
+        const logTimer = setInterval(() => {
+            if (logIdx < systemLogs.length) {
+                printSystemLog(systemLogs[logIdx]);
+                logIdx++;
             } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Icono Hamburguesa
+                clearInterval(logTimer);
+            }
+        }, 2000);
+
+        // Simulated auto-typing commands loop
+        const simulatedCommands = [
+            "scan --all-projects",
+            "get techmedic --stats",
+            "netrunner --version"
+        ];
+
+        let cmdIdx = 0;
+        let charIdx = 0;
+
+        function typeLoop() {
+            if (!termInput) return;
+            if (cmdIdx >= simulatedCommands.length) cmdIdx = 0;
+            const currentCmd = simulatedCommands[cmdIdx];
+
+            if (charIdx <= currentCmd.length) {
+                termInput.innerText = currentCmd.substring(0, charIdx);
+                charIdx++;
+                setTimeout(typeLoop, 120);
+            } else {
+                setTimeout(() => {
+                    executeSimulatedCommand(currentCmd);
+                    charIdx = 0;
+                    cmdIdx++;
+                    setTimeout(typeLoop, 3000);
+                }, 1500);
             }
         }
 
-        mobileMenuBtn.addEventListener('click', toggleMenu);
+        function executeSimulatedCommand(cmd) {
+            printSystemLog(`guest@netrunner:~$ ${cmd}`, 'var(--cp-yellow)');
+            if (cmd === 'scan --all-projects') {
+                printSystemLog("Compilando índice de proyectos... 5 proyectos catalogados.", '#48bb78');
+                printSystemLog("1. TechMedic | 2. Leoncitos POS | 3. Leoncitos POS Mobile | 4. A Mind Overflow | 5. Rent-Check", '#cbd5e0');
+            } else if (cmd === 'get techmedic --stats') {
+                printSystemLog("STATS: v13.7 | ENGINE: LARAVEL/PHP8 | SEC: PASSKEYS_OK", 'var(--cp-cyan)');
+            } else if (cmd === 'netrunner --version') {
+                printSystemLog("NETRUNNER PORTFOLIO SYSTEM v3.0 // BUILD 2026", '#fff');
+            }
+            termInput.innerText = "";
+        }
+
+        setTimeout(typeLoop, 2500);
+
+        // Active Navigation Highlight
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            let currentSec = '';
+
+            sections.forEach(sec => {
+                const top = sec.offsetTop;
+                const height = sec.offsetHeight;
+                if (pageYOffset >= (top - 150)) {
+                    currentSec = sec.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSec) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 
