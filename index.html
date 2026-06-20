@@ -81,28 +81,7 @@
                 <a href="#protocols" class="btn-cyber btn-outline">Establecer Enlace</a>
             </div>
 
-            <!-- Cyber Terminal Widget -->
-            <div class="terminal-widget">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <span class="terminal-title">CONSOLE://NETRUNNER.SYS</span>
-                    <span class="terminal-badge">SECURE_LINK</span>
-                </div>
-                <div class="terminal-body" id="terminal-lines">
-                    <div class="terminal-line" style="color: var(--cp-cyan); font-weight: bold;">&gt; INICIANDO
-                        PROTOCOLO PORTAFOLIO v3.0...</div>
-                    <div class="terminal-line">&gt; ENLACE_SISTEMA: ESTABLE [100%]</div>
-                    <div class="terminal-line">&gt; ENCRIPTACIÓN DE DATOS: ACTIVA</div>
-                </div>
-                <div class="terminal-input-line">
-                    <span class="terminal-prompt">guest@netrunner:~$</span>
-                    <span id="terminal-input"></span><span class="cursor"></span>
-                </div>
-            </div>
+
         </section>
 
         <!-- Projects Showcase Section -->
@@ -648,82 +627,7 @@
             mobileMenu.classList.remove('active');
         }
 
-        // --- INTERACTIVE SIMULATED TERMINAL WIDGET ---
-        const termLines = document.getElementById('terminal-lines');
-        const termInput = document.getElementById('terminal-input');
 
-        const systemLogs = [
-            "Conexión neural activa...",
-            "Iniciando escaneo de sistemas locales...",
-            "Ecosistema Leoncitos POS: DETECTADO [PRODUCCIÓN]",
-            "TechMedic Laravel App: INICIALIZADA [HERD]",
-            "Cargando interfaz visual NETRUNNER v3.0..."
-        ];
-
-        let logIdx = 0;
-        function printSystemLog(text, color = '#a0aec0') {
-            if (!termLines) return;
-            const line = document.createElement('div');
-            line.className = 'terminal-line';
-            line.style.color = color;
-            line.innerText = `> ${text}`;
-            termLines.appendChild(line);
-            termLines.scrollTop = termLines.scrollHeight;
-        }
-
-        // Cycle through initial logs
-        const logTimer = setInterval(() => {
-            if (logIdx < systemLogs.length) {
-                printSystemLog(systemLogs[logIdx]);
-                logIdx++;
-            } else {
-                clearInterval(logTimer);
-            }
-        }, 2000);
-
-        // Simulated auto-typing commands loop
-        const simulatedCommands = [
-            "scan --all-projects",
-            "get techmedic --stats",
-            "netrunner --version"
-        ];
-
-        let cmdIdx = 0;
-        let charIdx = 0;
-
-        function typeLoop() {
-            if (!termInput) return;
-            if (cmdIdx >= simulatedCommands.length) cmdIdx = 0;
-            const currentCmd = simulatedCommands[cmdIdx];
-
-            if (charIdx <= currentCmd.length) {
-                termInput.innerText = currentCmd.substring(0, charIdx);
-                charIdx++;
-                setTimeout(typeLoop, 120);
-            } else {
-                setTimeout(() => {
-                    executeSimulatedCommand(currentCmd);
-                    charIdx = 0;
-                    cmdIdx++;
-                    setTimeout(typeLoop, 3000);
-                }, 1500);
-            }
-        }
-
-        function executeSimulatedCommand(cmd) {
-            printSystemLog(`guest@netrunner:~$ ${cmd}`, 'var(--cp-yellow)');
-            if (cmd === 'scan --all-projects') {
-                printSystemLog("Compilando índice de proyectos... 5 proyectos catalogados.", '#48bb78');
-                printSystemLog("1. TechMedic | 2. Leoncitos POS | 3. Leoncitos POS Mobile | 4. A Mind Overflow | 5. Rent-Check", '#cbd5e0');
-            } else if (cmd === 'get techmedic --stats') {
-                printSystemLog("STATS: v13.7 | ENGINE: LARAVEL/PHP8 | SEC: PASSKEYS_OK", 'var(--cp-cyan)');
-            } else if (cmd === 'netrunner --version') {
-                printSystemLog("NETRUNNER PORTFOLIO SYSTEM v3.0 // BUILD 2026", '#fff');
-            }
-            termInput.innerText = "";
-        }
-
-        setTimeout(typeLoop, 2500);
 
         // Active Navigation Highlight
         window.addEventListener('scroll', () => {
