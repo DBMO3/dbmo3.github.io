@@ -26,14 +26,15 @@
     <!-- Navigation Bar -->
     <nav class="cyber-nav">
         <div class="nav-container">
-            <a href="#" class="logo">D.B.M.O.3<span>_</span></a>
-
             <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
                 &#9776;
             </button>
 
+            <a href="#" class="logo">D.B.M.O.3<span>_</span></a>
+
             <div class="nav-links" id="nav-links">
                 <a href="#init" class="nav-link active">INIT</a>
+                <a href="#profile" class="nav-link">PROFILE</a>
                 <a href="#showcase" class="nav-link">SHOWCASE</a>
                 <a href="#tech" class="nav-link">TECH</a>
                 <a href="#protocols" class="nav-link">CONTACT</a>
@@ -43,6 +44,7 @@
         <!-- Mobile Dropdown Navigation -->
         <div class="mobile-menu" id="mobile-menu">
             <a href="#init" class="nav-link" onclick="closeMobileMenu()">INIT</a>
+            <a href="#profile" class="nav-link" onclick="closeMobileMenu()">PROFILE</a>
             <a href="#showcase" class="nav-link" onclick="closeMobileMenu()">SHOWCASE</a>
             <a href="#tech" class="nav-link" onclick="closeMobileMenu()">TECH</a>
             <a href="#protocols" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
@@ -61,7 +63,7 @@
                 &gt; STATUS: ACTIVE
             </div>
 
-            <div class="hero-tag">Core Developer // Portfolio</div>
+            <div class="hero-tag">Dylan Bernal Mora // Core Developer</div>
             <h1 class="hero-title">
                 <span class="glitch-text" data-text="NETRUNNER">NETRUNNER</span>
             </h1>
@@ -83,6 +85,85 @@
 
         </section>
 
+        <!-- Agent Profile / Storytelling Section -->
+        <section id="profile">
+            <div class="section-title-center">
+                <div class="line-yellow"></div>
+                <div class="line-grey"></div>
+                <h2>SYS.PROFILE // Dylan Bernal</h2>
+                <div class="line-grey"></div>
+                <div class="line-yellow"></div>
+            </div>
+
+            <div class="profile-container">
+                <!-- Left: Terminal Stats Card -->
+                <div class="agent-card">
+                    <div class="agent-header">
+                        <div class="agent-avatar-placeholder">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="agent-meta">
+                            <h3>DYLAN BERNAL MORA</h3>
+                            <span class="agent-alias">ALIAS: D.B.M.O.3_</span>
+                            <span class="agent-status-label"><span class="status-dot green"></span> ONLINE</span>
+                        </div>
+                    </div>
+
+                    <div class="agent-specs">
+                        <div class="spec-line">
+                            <span class="spec-label">ROLES:</span>
+                            <span class="spec-value">Software Engineer / Game Dev</span>
+                        </div>
+                        <div class="spec-line">
+                            <span class="spec-label">ORIGIN:</span>
+                            <span class="spec-value">Cuernavaca, Morelos, México</span>
+                        </div>
+                        <div class="spec-line">
+                            <span class="spec-label">CORE PHILOSOPHY:</span>
+                            <span class="spec-value">Offline-first, Latency Zero, Resilient Systems</span>
+                        </div>
+                        <div class="spec-line">
+                            <span class="spec-label">CREATIVE FOCUS:</span>
+                            <span class="spec-value">Psychological Narrative & Game Mechanics</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Storytelling & Narrative -->
+                <div class="agent-story">
+                    <h3 class="story-title">El Operador detrás del Código</h3>
+                    <p class="story-p">
+                        Detrás de cada bloque de código y base de datos, hay una misión clara: <strong>construir
+                            sistemas que resistan el mundo real</strong>. No soy un desarrollador que simplemente
+                        traduce requerimientos en código; me veo como un artesano digital e ingeniero de infraestructura
+                        táctica.
+                    </p>
+                    <p class="story-p">
+                        Mi historia en el desarrollo de software comenzó con una obsesión por la autonomía y el
+                        rendimiento. En un mundo donde todo depende de la nube, me he especializado en crear
+                        <strong>soluciones híbridas y offline-first</strong>. Creo firmemente que un negocio no debe
+                        detenerse si el internet falla, una filosofía que apliqué al diseñar un ERP híbrido con Firebird
+                        SQL y Supabase que mantiene una construtienda operando a latencia cero sin perder el respaldo en
+                        la nube.
+                    </p>
+                    <p class="story-p">
+                        Pero la ingeniería no es mi único canal de datos. Mi mente también se desborda hacia la creación
+                        interactiva. Con <em>A Mind Overflow</em>, desarrollo videojuegos en Python que exploran el
+                        terror psicológico y la narrativa inmersiva. Este balance entre <strong>lógica
+                            implacable</strong> (como auditar deudas en Rent-Check) y <strong>creatividad
+                            atmosférica</strong> es lo que define mi trabajo.
+                    </p>
+                    <div class="story-quote">
+                        <blockquote>
+                            "El software de alta calidad no es el que más librerías usa, sino el que resuelve problemas
+                            de forma silenciosa, eficiente y sin fallar cuando más se le necesita."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Showcase Section -->
         <section id="showcase">
             <div class="section-title-center">
@@ -98,29 +179,29 @@
                 <!-- Project 1: TechMedic -->
                 <div class="project-card yellow">
                     <div>
-                        <div class="project-thumbnail">
-                            <img src="techmedic.png" alt="TechMedic" onerror="this.src='image.png';">
+                        <div class="project-thumbnail project-placeholder">
+                            <i class="fa-solid fa-robot"></i>
+                            <div class="scanner-line"></div>
+                            <span>DATA_STREAM // ???</span>
                         </div>
                         <div class="project-header">
                             <h3 class="project-title">TechMedic</h3>
-                            <span class="project-type">Web App</span>
+                            <span class="project-type">WhatsApp Bot</span>
                         </div>
                         <div class="project-status">
                             <span class="status-dot"></span>
                             <span>STATUS: EN DESARROLLO</span>
                         </div>
                         <p class="project-desc">
-                            Plataforma web basada en tickets para gestionar la reparación de equipos (teléfonos,
-                            consolas, laptops). Ofrece portal para clientes con seguimiento en tiempo real,
-                            notificaciones automáticas y emisión de órdenes en PDF con código QR.
+                            Asistente virtual de WhatsApp para automatizar el soporte técnico de reparaciones. Registra tickets, diagnostica fallas mediante Inteligencia Artificial (Llama 3 / Groq) y notifica el estatus en tiempo real directamente en el chat.
                         </p>
                     </div>
                     <div>
                         <div class="project-techs">
-                            <div class="tech-badge"><i class="devicon-laravel-original"></i> Laravel</div>
-                            <div class="tech-badge"><i class="devicon-php-plain"></i> PHP</div>
-                            <div class="tech-badge"><i class="devicon-tailwindcss-original"></i> Tailwind CSS</div>
-                            <div class="tech-badge"><i class="devicon-supabase-plain"></i> Supabase</div>
+                            <div class="tech-badge"><i class="devicon-nodejs-plain"></i> Node.js</div>
+                            <div class="tech-badge"><i class="devicon-javascript-plain"></i> JavaScript</div>
+                            <div class="tech-badge"><i class="fa-brands fa-whatsapp"></i> Baileys</div>
+                            <div class="tech-badge"><i class="fa-solid fa-brain"></i> Groq (Llama)</div>
                         </div>
                         <div class="project-footer">
                             <button class="btn-cyber" onclick="openProject('techmedic')">Decodificar Logs</button>
@@ -300,6 +381,10 @@
                     <span class="tech-name">Supabase</span>
                 </div>
                 <div class="tech-card">
+                    <i class="devicon-mysql-original"></i>
+                    <span class="tech-name">MySQL</span>
+                </div>
+                <div class="tech-card">
                     <i class="devicon-firebird-plain"></i>
                     <span class="tech-name">Firebird</span>
                 </div>
@@ -318,6 +403,10 @@
                 <div class="tech-card">
                     <i class="devicon-javascript-plain"></i>
                     <span class="tech-name">JavaScript</span>
+                </div>
+                <div class="tech-card">
+                    <i class="devicon-nodejs-plain"></i>
+                    <span class="tech-name">Node.js</span>
                 </div>
                 <div class="tech-card">
                     <i class="devicon-git-plain"></i>
@@ -401,28 +490,28 @@
                 title: "TechMedic",
                 content: `
                     <h4>Descripción de Compilación</h4>
-                    <p>Plataforma web basada en tickets para la administración de reparaciones de dispositivos tecnológicos (teléfonos, consolas, laptops y computadoras). Centraliza la comunicación y flujos de trabajo entre el cliente y el soporte técnico.</p>
+                    <p>Asistente virtual de WhatsApp potenciado con Inteligencia Artificial para la automatización del soporte técnico y la administración del flujo de reparaciones de dispositivos tecnológicos.</p>
                     
                     <h4>Detalles del Ecosistema</h4>
                     <ul>
-                        <li><strong>Portal de Clientes Autogestionado:</strong> Los usuarios pueden consultar en tiempo real el estatus e información detallada de sus equipos ingresando su número de ticket.</li>
-                        <li><strong>Notificaciones Automáticas:</strong> Despacho automático de avisos al cliente ante actualizaciones de estado o emisión de cotizaciones.</li>
-                        <li><strong>Panel de Gestión del Técnico:</strong> Bandeja de entrada para cotizar reparaciones, notificar costes al usuario, capturar la aceptación del cliente y formalizar órdenes de servicio.</li>
-                        <li><strong>Generación de Comprobantes PDF:</strong> Generación automatizada de órdenes de servicio físicas que integran un código QR de rastreo online y un mapa de entrega del local de soporte.</li>
+                        <li><strong>Diagnóstico Asistido por IA:</strong> Integración con la API de Groq (ejecutando modelos Llama 3) para procesar el lenguaje natural, permitiendo al asistente entender los síntomas reportados por el cliente y sugerir diagnósticos preliminares.</li>
+                        <li><strong>Gestión de Tickets por Chat:</strong> Permite a los clientes registrar incidencias, consultar el avance de sus reparaciones y recibir cotizaciones directamente en su chat de WhatsApp.</li>
+                        <li><strong>Motor de Conectividad Ligero:</strong> Desarrollado sobre Node.js usando la biblioteca Baileys para interactuar directamente con la red de WhatsApp, evitando dependencias de proveedores externos y reduciendo costes de operación.</li>
+                        <li><strong>Notificaciones Proactivas:</strong> Alertas automáticas enviadas al usuario cuando el técnico cambia el estado del dispositivo (ej. "Listo para entrega").</li>
                     </ul>
                     
                     <div class="modal-tech-specs">
                         <div class="spec-item">
                             <h5>LENGUAJES</h5>
-                            <p>PHP / HTML5 / CSS3 / SQL</p>
+                            <p>JavaScript (Node.js)</p>
                         </div>
                         <div class="spec-item">
                             <h5>DEPENDENCIAS CLAVE</h5>
-                            <p>Laravel, Livewire, DomPDF, Tailwind CSS</p>
+                            <p>Baileys, Groq API (Llama 3)</p>
                         </div>
                         <div class="spec-item">
                             <h5>BASE DE DATOS</h5>
-                            <p>Supabase (PostgreSQL)</p>
+                            <p>MySQL (DigitalOcean Droplet)</p>
                         </div>
                         <div class="spec-item">
                             <h5>ESTADO DEL PROYECTO</h5>
